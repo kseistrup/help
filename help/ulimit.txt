@@ -1,0 +1,76 @@
+ulimit [-aBCcdefHilMmnOPpqrSsTtVvw] [value]
+    Display or set process limits.  If no options are used, the file
+    size limit (-f) is assumed.  value, if specified, may be either an
+    arithmetic expression or the word “unlimited”.  The limits affect
+    the shell and any processes created by the shell after a limit is
+    imposed.  Note that some systems may not allow limits to be
+    increased once they are set.  Also note that the types of limits
+    available are system dependent – some systems have only the -f
+    limit, or not even that, or can set only the soft limits
+
+    -a     Display all limits; unless -H is used, soft limits are dis‐
+           played.
+
+    -B n   Set the socket buffer size to n kibibytes.
+
+    -C n   Set the number of cached threads to n.
+
+    -c n   Impose a size limit of n blocks on the size of core dumps.
+
+    -d n   Impose a size limit of n kibibytes on the size of the data
+           area.
+
+    -e n   Set the maximum niceness to n.
+
+    -f n   Impose a size limit of n blocks on files written by the
+           shell and its child processes (files of any size may be
+           read).
+
+    -H     Set the hard limit only (the default is to set both hard
+           and soft limits).
+
+    -i n   Set the number of pending signals to n.
+
+    -l n   Impose a limit of n kibibytes on the amount of locked
+           (wired) physical memory.
+
+    -M n   Set the AIO locked memory to n kibibytes.
+
+    -m n   Impose a limit of n kibibytes on the amount of physical
+           memory used.
+
+    -n n   Impose a limit of n file descriptors that can be open at
+           once.
+
+    -O n   Set the number of AIO operations to n.
+
+    -P n   Limit the number of threads per process to n.
+
+    -p n   Impose a limit of n processes that can be run by the user
+           at any one time.
+
+    -q n   Limit the size of POSIX message queues to n bytes.
+
+    -r n   Set the maximum real-time priority to n.
+
+    -S     Set the soft limit only (the default is to set both hard
+           and soft limits).
+
+    -s n   Impose a size limit of n kibibytes on the size of the stack
+           area.
+
+    -T n   Impose a time limit of n real seconds to be used by each
+           process.
+
+    -t n   Impose a time limit of n CPU seconds spent in user mode to
+           be used by each process.
+
+    -V n   Set the number of vnode monitors on Haiku to n.
+
+    -v n   Impose a limit of n kibibytes on the amount of virtual mem‐
+           ory (address space) used.
+
+    -w n   Impose a limit of n kibibytes on the amount of swap space
+           used.
+
+    As far as ulimit is concerned, a block is 512 bytes.

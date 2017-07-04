@@ -1,0 +1,225 @@
+set [+-abCefhiklmnprsUuvXx] [+-o option] [+-A name] [--] [arg ...]
+    The set command can be used to set (-) or clear (+) shell options,
+    set the positional parameters, or set an array parameter.  Options
+    can be changed using the +-o option syntax, where option is the
+    long name of an option, or using the +-letter syntax, where letter
+    is the option's single letter name (not all options have a single
+    letter name).  The following table lists both option letters (if
+    they exist) and long names along with a description of what the
+    option does:
+
+    -A name
+         Sets the elements of the array parameter name to arg ... If
+         -A is used, the array is reset (i.e. emptied) first; if +A is
+         used, the first N elements are set (where N is the number of
+         arguments); the rest are left untouched.
+
+         An alternative syntax for the command set -A foo -- a b c
+         which is compatible to GNU bash and also supported by AT&T
+         UNIX ksh93 is: foo=(a b c); foo+=(d e)
+
+    -a | -o allexport
+         All new parameters are created with the export attribute.
+
+    -b | -o notify
+         Print job notification messages asynchronously, instead of
+         just before the prompt.  Only used if job control is enabled
+         (-m).
+
+    -C | -o noclobber
+         Prevent > redirection from overwriting existing files.
+         Instead, >| must be used to force an overwrite.  Note that
+         this is not safe to use for creation of temporary files or
+         lockfiles due to a TOCTOU in a check allowing one to redirect
+         output to /dev/null or other device files even in noclobber
+         mode.
+
+    -e | -o errexit
+         Exit (after executing the ERR trap) as soon as an error
+         occurs or a command fails (i.e. exits with a non-zero sta‐
+         tus).  This does not apply to commands whose exit status is
+         explicitly tested by a shell construct such as if, until,
+         while or ! statements.  For && or ||, only the status of the
+         last command is tested.
+
+    -f | -o noglob
+         Do not expand file name patterns.
+
+    -h | -o trackall
+         Create tracked aliases for all executed commands (see Aliases
+         above).  Enabled by default for non-interactive shells.
+
+    -i | -o interactive
+         The shell is an interactive shell.  This option can only be
+         used when the shell is invoked.  See above for a description
+         of what this means.
+
+    -k | -o keyword
+         Parameter assignments are recognised anywhere in a command.
+
+    -l | -o login
+         The shell is a login shell.  This option can only be used
+         when the shell is invoked.  See above for a description of
+         what this means.
+
+    -m | -o monitor
+         Enable job control (default for interactive shells).
+
+    -n | -o noexec
+         Do not execute any commands.  Useful for checking the syntax
+         of scripts (ignored if interactive).
+
+    -p | -o privileged
+         The shell is a privileged shell.  It is set automatically if,
+         when the shell starts, the real UID or GID does not match the
+         effective UID (EUID) or GID (EGID), respectively.  See above
+         for a description of what this means.
+
+    -r | -o restricted
+         The shell is a restricted shell.  This option can only be
+         used when the shell is invoked.  See above for a description
+         of what this means.
+
+    -s | -o stdin
+         If used when the shell is invoked, commands are read from
+         standard input.  Set automatically if the shell is invoked
+         with no arguments.
+
+         When -s is used with the set command it causes the specified
+         arguments to be sorted before assigning them to the posi‐
+         tional parameters (or to array name, if -A is used).
+
+    -U | -o utf8-mode
+         Enable UTF-8 support in the Emacs editing mode and internal
+         string handling functions.  This flag is disabled by default,
+         but can be enabled by setting it on the shell command line;
+         is enabled automatically for interactive shells if requested
+         at compile time, your system supports setlocale(LC_CTYPE, "")
+         and optionally nl_langinfo(CODESET), or the LC_ALL, LC_CTYPE
+         or LANG environment variables, and at least one of these
+         returns something that matches “UTF-8” or “utf8” case-insen‐
+         sitively; for direct builtin calls depending on the aforemen‐
+         tioned environment variables; or for stdin or scripts, if the
+         input begins with a UTF-8 Byte Order Mark.
+
+         In near future, locale tracking will be implemented, which
+         means that set -+U is changed whenever one of the POSIX
+         locale-related environment variables changes.
+
+    -u | -o nounset
+         Referencing of an unset parameter, other than “$@” or “$*”,
+         is treated as an error, unless one of the ‘-’, ‘+’ or ‘=’
+         modifiers is used.
+
+    -v | -o verbose
+         Write shell input to standard error as it is read.
+
+    -X | -o markdirs
+         Mark directories with a trailing ‘/’ during file name genera‐
+         tion.
+
+    -x | -o xtrace
+         Print command trees when they are executed, preceded by the
+         value of PS4.
+
+    -o bgnice
+         Background jobs are run with lower priority.
+
+    -o braceexpand
+         Enable brace expansion (a.k.a. alternation).  This is enabled
+         by default.
+
+    -o emacs
+         Enable BRL emacs-like command-line editing (interactive
+         shells only); see Emacs editing mode.
+
+    -o gmacs
+         Enable gmacs-like command-line editing (interactive shells
+         only).  Currently identical to emacs editing except that
+         transpose-chars (^T) acts slightly differently.
+
+    -o ignoreeof
+         The shell will not (easily) exit when end-of-file is read;
+         exit must be used.  To avoid infinite loops, the shell will
+         exit if EOF is read 13 times in a row.
+
+    -o inherit-xtrace
+         Do not reset -o xtrace upon entering functions.  This is
+         enabled by default.
+
+    -o nohup
+         Do not kill running jobs with a SIGHUP signal when a login
+         shell exits.  Currently set by default, but this may change
+         in the future to be compatible with AT&T UNIX ksh, which
+         doesn't have this option, but does send the SIGHUP signal.
+
+    -o nolog
+         No effect.  In the original Korn shell, this prevents func‐
+         tion definitions from being stored in the history file.
+
+    -o physical
+         Causes the cd and pwd commands to use “physical” (i.e. the
+         filesystem's) “..” directories instead of “logical” directo‐
+         ries (i.e. the shell handles “..”, which allows the user to
+         be oblivious of symbolic links to directories).  Clear by
+         default.  Note that setting this option does not affect the
+         current value of the PWD parameter; only the cd command
+         changes PWD.  See the cd and pwd commands above for more
+         details.
+
+    -o pipefail
+         Make the exit status of a pipeline (before logically comple‐
+         menting) the rightmost non-zero errorlevel, or zero if all
+         commands exited with zero.
+
+    -o posix
+         Behave closer to the standards (see POSIX mode for details).
+         Automatically enabled if the basename of the shell invocation
+         begins with “sh” and this autodetection feature is compiled
+         in (not in MirBSD).  As a side effect, setting this flag
+         turns off braceexpand mode, which can be turned back on manu‐
+         ally, and sh mode (unless both are enabled at the same time).
+
+    -o sh
+         Enable /bin/sh (kludge) mode (see SH mode).  Automatically
+         enabled if the basename of the shell invocation begins with
+         “sh” and this autodetection feature is compiled in (not in
+         MirBSD).  As a side effect, setting this flag turns off
+         braceexpand mode, which can be turned back on manually, and
+         posix mode (unless both are enabled at the same time).
+
+    -o vi
+         Enable vi(1)-like command-line editing (interactive shells
+         only).  See Vi editing mode for documentation and limita‐
+         tions.
+
+    -o vi-esccomplete
+         In vi command-line editing, do command and file name comple‐
+         tion when escape (^[) is entered in command mode.
+
+    -o vi-tabcomplete
+         In vi command-line editing, do command and file name comple‐
+         tion when tab (^I) is entered in insert mode.  This is the
+         default.
+
+    -o viraw
+         No effect.  In the original Korn shell, unless viraw was set,
+         the vi command-line mode would let the tty(4) driver do the
+         work until ESC (^[) was entered.  mksh is always in viraw
+         mode.
+
+    These options can also be used upon invocation of the shell.  The
+    current set of options (with single letter names) can be found in
+    the parameter “$-”.  set -o with no option name will list all the
+    options and whether each is on or off; set +o will print the long
+    names of all options that are currently on.  In a future version,
+    set +o will behave POSIX compliant and print commands to restore
+    the current options instead.
+
+    Remaining arguments, if any, are positional parameters and are
+    assigned, in order, to the positional parameters (i.e. $1, $2,
+    etc.).  If options end with “--” and there are no remaining argu‐
+    ments, all positional parameters are cleared.  If no options or
+    arguments are given, the values of all names are printed.  For
+    unknown historical reasons, a lone “-” option is treated specially
+    – it clears both the -v and -x options.

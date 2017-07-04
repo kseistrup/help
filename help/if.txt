@@ -1,0 +1,8 @@
+if list; then list; [elif list; then list;] ... [else list;] fi
+   If the exit status of the first list is zero, the second list is
+   executed; otherwise, the list following the elif, if any, is exe‐
+   cuted with similar consequences.  If all the lists following the if
+   and elifs fail (i.e. exit with non-zero status), the list following
+   the else is executed.  The exit status of an if statement is that
+   of non-conditional list that is executed; if no non-conditional
+   list is executed, the exit status is zero.

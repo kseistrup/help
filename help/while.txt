@@ -1,0 +1,5 @@
+while list; do list; done
+   A while is a pre-checked loop.  Its body is executed as often as
+   the exit status of the first list is zero.  The exit status of a
+   while statement is the last exit status of the list in the body of
+   the loop; if the body is not executed, the exit status is zero.

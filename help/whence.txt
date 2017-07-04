@@ -1,0 +1,6 @@
+whence [-pv] [name ...]
+    Without the -v option, it is the same as command -v, except
+    aliases are not printed as alias command.  With the -v option, it
+    is exactly the same as command -V.  In either case, the -p option
+    differs: the search path is not affected in whence, but the search
+    is restricted to the path.

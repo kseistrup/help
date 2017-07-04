@@ -1,0 +1,3 @@
+break [level]
+    Exit the levelth inner-most for, select, until or while loop.
+    level defaults to 1.

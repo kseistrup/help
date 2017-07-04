@@ -1,0 +1,7 @@
+pwd [-LP]
+    Print the present working directory.  If the -L option is used or
+    if the physical option isn't set (see the set command below), the
+    logical path is printed (i.e. the path used to cd to the current
+    directory).  If the -P option (physical path) is used or if the
+    physical option is set, the path determined from the filesystem
+    (by following “..” directories to the root directory) is printed.

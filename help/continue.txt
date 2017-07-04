@@ -1,0 +1,3 @@
+continue [level]
+    Jumps to the beginning of the levelth inner-most for, select,
+    until or while loop.  level defaults to 1.

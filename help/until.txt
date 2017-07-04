@@ -1,0 +1,3 @@
+until list; do list; done
+   This works like while, except that the body is executed only while
+   the exit status of the first list is non-zero.

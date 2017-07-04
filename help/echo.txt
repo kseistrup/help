@@ -1,0 +1,18 @@
+echo [-Een] [arg ...]
+    Warning: this utility is not portable; use the Korn shell builtin
+    print instead.
+
+    Prints its arguments (separated by spaces) followed by a newline,
+    to the standard output.  The newline is suppressed if any of the
+    arguments contain the backslash sequence “\c”.  See the print com‐
+    mand below for a list of other backslash sequences that are recog‐
+    nised.
+
+    The options are provided for compatibility with BSD shell scripts.
+    The -n option suppresses the trailing newline, -e enables back‐
+    slash interpretation (a no-op, since this is normally done), and
+    -E suppresses backslash interpretation.
+
+    If the posix or sh option is set or this is a direct builtin call
+    or print -R, only the first argument is treated as an option, and
+    only if it is exactly “-n”.  Backslash interpretation is disabled.

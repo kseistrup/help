@@ -1,0 +1,14 @@
+false
+    A command that exits with a non-zero status.
+
+fc [-e editor | -l [-n]] [-r] [first [last]]
+    first and last select commands from the history.  Commands can be
+    selected by history number (negative numbers go backwards from the
+    current, most recent, line) or a string specifying the most recent
+    command starting with that string.  The -l option lists the com‐
+    mand on standard output, and -n inhibits the default command num‐
+    bers.  The -r option reverses the order of the list.  Without -l,
+    the selected commands are edited by the editor specified with the
+    -e option or, if no -e is specified, the editor specified by the
+    FCEDIT parameter (if this parameter is not set, /bin/ed is used),
+    and then executed by the shell.

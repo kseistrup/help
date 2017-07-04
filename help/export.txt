@@ -1,0 +1,10 @@
+export [-p] [parameter[=value]]
+    Sets the export attribute of the named parameters.  Exported
+    parameters are passed in the environment to executed commands.  If
+    values are specified, the named parameters are also assigned.
+    This is a declaration utility.
+
+    If no parameters are specified, all parameters with the export
+    attribute set are printed one per line; either their names, or, if
+    a “-” with no option letter is specified, name=value pairs, or,
+    with -p, export commands suitable for re-entry.

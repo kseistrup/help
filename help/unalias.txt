@@ -1,0 +1,5 @@
+unalias [-adt] [name ...]
+    The aliases for the given names are removed.  If the -a option is
+    used, all aliases are removed.  If the -t or -d options are used,
+    the indicated operations are carried out on tracked or directory
+    aliases, respectively.

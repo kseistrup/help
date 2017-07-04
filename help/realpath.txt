@@ -1,0 +1,8 @@
+realpath [--] name
+    Prints the resolved absolute pathname corresponding to name.  If
+    name ends with a slash (‘/’), it's also checked for existence and
+    whether it is a directory; otherwise, realpath returns 0 if the
+    pathname either exists or can be created immediately, i.e. all but
+    the last component exist and are directories.  For calls from the
+    shell, if any options are given, an external realpath(1) utility
+    is preferred over the builtin.

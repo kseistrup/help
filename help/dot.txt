@@ -1,0 +1,11 @@
+. file [arg ...]
+    This is called the “dot” command.  Execute the commands in file in
+    the current environment.  The file is searched for in the directo‐
+    ries of PATH.  If arguments are given, the positional parameters
+    may be used to access them while file is being executed.  If no
+    arguments are given, the positional parameters are those of the
+    environment the command is used in.
+
+source file [arg ...]
+    Like . (“dot”), except that the current working directory is
+    appended to the search path (GNU bash extension).

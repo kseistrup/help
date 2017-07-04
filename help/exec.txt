@@ -1,0 +1,14 @@
+exec [-a argv0] [-c] [command [arg ...]]
+    The command is executed without forking, replacing the shell
+    process.  This is currently absolute, i.e. exec never returns,
+    even if the command is not found.  The -a option permits setting a
+    different argv[0] value, and -c clears the environment before exe‐
+    cuting the child process, except for the _ variable and direct
+    assignments.
+
+    If no command is given except for I/O redirection, the I/O redi‐
+    rection is permanent and the shell is not replaced.  Any file
+    descriptors greater than 2 which are opened or dup(2)'d in this
+    way are not made available to other executed commands (i.e. com‐
+    mands that are not built-in to the shell).  Note that the Bourne
+    shell differs here; it does pass these file descriptors on.

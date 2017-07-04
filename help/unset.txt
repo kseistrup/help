@@ -1,0 +1,6 @@
+unset [-fv] parameter ...
+    Unset the named parameters (-v, the default) or functions (-f).
+    With parameter[*], attributes are kept, only values are unset.
+
+    The exit status is non-zero if any of the parameters have the
+    read-only attribute set, zero otherwise.

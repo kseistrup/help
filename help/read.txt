@@ -1,0 +1,64 @@
+read [-A | -a] [-d x] [-N z | -n z] [-p | -u[n]] [-t n] [-rs] [p ...]
+    Reads a line of input, separates the input into fields using the
+    IFS parameter (see Substitution above), and assigns each field to
+    the specified parameters p.  If no parameters are specified, the
+    REPLY parameter is used to store the result.  With the -A and -a
+    options, only no or one parameter is accepted.  If there are more
+    parameters than fields, the extra parameters are set to the empty
+    string or 0; if there are more fields than parameters, the last
+    parameter is assigned the remaining fields (including the word
+    separators).
+
+    The options are as follows:
+
+    -A     Store the result into the parameter p (or REPLY) as array
+           of words.
+
+    -a     Store the result without word splitting into the parameter
+           p (or REPLY) as array of characters (wide characters if the
+           utf8-mode option is enacted, octets otherwise); the code‐
+           points are encoded as decimal numbers by default.
+
+    -d x   Use the first byte of x, NUL if empty, instead of the ASCII
+           newline character as input line delimiter.
+
+    -N z   Instead of reading till end-of-line, read exactly z bytes.
+           Upon EOF, a partial read is returned with exit status 1.
+           After timeout, a partial read is returned with an exit sta‐
+           tus as if SIGALRM were caught.
+
+    -n z   Instead of reading till end-of-line, read up to z bytes but
+           return as soon as any bytes are read, e.g. from a slow ter‐
+           minal device, or if EOF or a timeout occurs.
+
+    -p     Read from the currently active co-process, see Co-processes
+           above for details on this.
+
+    -u[n]  Read from the file descriptor n (defaults to 0, i.e. stan‐
+           dard input).  The argument must immediately follow the
+           option character.
+
+    -t n   Interrupt reading after n seconds (specified as positive
+           decimal value with an optional fractional part).  The exit
+           status of read is the same as if SIGALRM were caught if the
+           timeout occurred, but partial reads may still be returned.
+
+    -r     Normally, the ASCII backslash character escapes the special
+           meaning of the following character and is stripped from the
+           input; read does not stop when encountering a backslash-
+           newline sequence and does not store that newline in the
+           result.  This option enables raw mode, in which backslashes
+           are not processed.
+
+    -s     The input line is saved to the history.
+
+    If the input is a terminal, both the -N and -n options set it into
+    raw mode; they read an entire file if -1 is passed as z argument.
+
+    The first parameter may have a question mark and a string appended
+    to it, in which case the string is used as a prompt (printed to
+    standard error before any input is read) if the input is a tty(4)
+    (e.g. read nfoo?'number of foos: ').
+
+    If no input is read or a timeout occurred, read exits with a non-
+    zero status.

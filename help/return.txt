@@ -1,0 +1,7 @@
+return [status]
+    Returns from a function or . script, with exit status status.  If
+    no status is given, the exit status of the last executed command
+    is used.  If used outside of a function or . script, it has the
+    same effect as exit.  Note that mksh treats both profile and ENV
+    files as . scripts, while the original Korn shell only treats pro‐
+    files as . scripts.

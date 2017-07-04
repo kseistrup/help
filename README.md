@@ -1,2 +1,3 @@
 # help
-Because mksh didn't have a ‘help’ command
+
+Because mksh didn't have a `help` command.

@@ -1,0 +1,103 @@
+typeset -f [-tux] [name ...]
+    Display or set parameter attributes.  This is a declaration util‐
+    ity.  With no name arguments, parameter attributes are displayed;
+    if no options are used, the current attributes of all parameters
+    are printed as typeset commands; if an option is given (or “-”
+    with no option letter), all parameters and their values with the
+    specified attributes are printed; if options are introduced with
+    ‘+’, parameter values are not printed.
+
+    If name arguments are given, the attributes of the named parame‐
+    ters are set (-) or cleared (+); inside a function, this will
+    cause the parameters to be created (with no value) in the local
+    scope (but see -g).  Values for parameters may optionally be spec‐
+    ified.  For name[*], the change affects all elements of the array,
+    and no value may be specified.
+
+    When -f is used, typeset operates on the attributes of functions.
+    As with parameters, if no name arguments are given, functions are
+    listed with their values (i.e. definitions) unless options are
+    introduced with ‘+’, in which case only the function names are
+    reported.
+
+    -a      Indexed array attribute.
+
+    -f      Function mode.  Display or set functions and their
+            attributes, instead of parameters.
+
+    -g      Do not cause named parameters to be created in the local
+            scope when called inside a function.
+
+    -i[n]   Integer attribute.  n specifies the base to use when dis‐
+            playing the integer (if not specified, the base given in
+            the first assignment is used).  Parameters with this
+            attribute may be assigned values containing arithmetic
+            expressions.
+
+    -L[n]   Left justify attribute.  n specifies the field width.  If
+            n is not specified, the current width of a parameter (or
+            the width of its first assigned value) is used.  Leading
+            whitespace (and zeros, if used with the -Z option) is
+            stripped.  If necessary, values are either truncated or
+            space padded to fit the field width.
+
+    -l      Lower case attribute.  All upper case ASCII characters in
+            values are converted to lower case.  (In the original Korn
+            shell, this parameter meant “long integer” when used with
+            the -i option.)
+
+    -n      Create a bound variable (name reference): any access to
+            the variable name will access the variable value in the
+            current scope (this is different from AT&T UNIX ksh93!)
+            instead.  Also different from AT&T UNIX ksh93 is that
+            value is lazily evaluated at the time name is accessed.
+            This can be used by functions to access variables whose
+            names are passed as parameters, instead of using eval.
+
+    -p      Print complete typeset commands that can be used to re-
+            create the attributes and values of parameters.
+
+    -R[n]   Right justify attribute.  n specifies the field width.  If
+            n is not specified, the current width of a parameter (or
+            the width of its first assigned value) is used.  Trailing
+            whitespace is stripped.  If necessary, values are either
+            stripped of leading characters or space padded to make
+            them fit the field width.
+
+    -r      Read-only attribute.  Parameters with this attribute may
+            not be assigned to or unset.  Once this attribute is set,
+            it cannot be turned off.
+
+    -t      Tag attribute.  Has no meaning to the shell; provided for
+            application use.
+
+            For functions, -t is the trace attribute.  When functions
+            with the trace attribute are executed, the xtrace (-x)
+            shell option is temporarily turned on.
+
+    -U      Unsigned integer attribute.  Integers are printed as
+            unsigned values (combine with the -i option).  This option
+            is not in the original Korn shell.
+
+    -u      Upper case attribute.  All lower case ASCII characters in
+            values are converted to upper case.  (In the original Korn
+            shell, this parameter meant “unsigned integer” when used
+            with the -i option which meant upper case letters would
+            never be used for bases greater than 10.  See the -U
+            option.)
+
+            For functions, -u is the undefined attribute.  See
+            Functions above for the implications of this.
+
+    -x      Export attribute.  Parameters (or functions) are placed in
+            the environment of any executed commands.  Exported func‐
+            tions are not yet implemented.
+
+    -Z[n]   Zero fill attribute.  If not combined with -L, this is the
+            same as -R, except zero padding is used instead of space
+            padding.  For integers, the number instead of the base is
+            padded.
+
+    If any of the -i, -L, -l, -R, -U, -u or -Z options are changed,
+    all others from this set are cleared, unless they are also given
+    on the same command line.

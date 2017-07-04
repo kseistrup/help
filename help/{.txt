@@ -1,0 +1,3 @@
+{ list; }
+   Compound construct; list is executed, but not in a subshell.  Note
+   that “{” and “}” are reserved words, not meta-characters.

@@ -1,0 +1,8 @@
+function name { list; }
+   Defines the function name (see Functions below).  Note that redi‐
+   rections specified after a function definition are performed when‐
+   ever the function is executed, not when the function definition is
+   executed.
+
+function name() { list; }
+   The same as name() (bashism).  The function keyword is ignored.

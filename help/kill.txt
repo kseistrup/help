@@ -1,0 +1,10 @@
+kill [-s signame | -signum | -signame] { job | pid | pgrp } ...
+    Send the specified signal to the specified jobs, process IDs or
+    process groups.  If no signal is specified, the TERM signal is
+    sent.  If a job is specified, the signal is sent to the job's
+    process group.  See Job control below for the format of job.
+
+kill -l [exit-status ...]
+    Print the signal name corresponding to exit-status.  If no argu‐
+    ments are specified, a list of all the signals with their numbers
+    and a short description of each are printed.

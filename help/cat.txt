@@ -1,0 +1,7 @@
+cat [-u] [file ...]
+    Read files sequentially, in command line order, and write them to
+    standard output.  If a file is a single dash (“-”) or absent, read
+    from standard input.  For direct builtin calls, the POSIX -u
+    option is supported as a no-op.  For calls from shell, if any
+    options are given, an external cat(1) utility is preferred over
+    the builtin.

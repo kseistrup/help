@@ -1,0 +1,7 @@
+fc -e - | -s [-g] [old=new] [prefix]
+    Re-execute the selected command (the previous command by default)
+    after performing the optional substitution of old with new.  If -g
+    is specified, all occurrences of old are replaced with new.  The
+    meaning of -e - and -s is identical: re-execute the selected com‐
+    mand without invoking an editor.  This command is usually accessed
+    with the predefined: alias r='fc -e -'

@@ -1,0 +1,26 @@
+cd [-L] [dir]
+cd -P [-e] [dir]
+chdir [-eLP] [dir]
+    Set the working directory to dir.  If the parameter CDPATH is set,
+    it lists the search path for the directory containing dir.  An
+    unset or empty path means the current directory.  If dir is found
+    in any component of the CDPATH search path other than an unset or
+    empty path, the name of the new working directory will be written
+    to standard output.  If dir is missing, the home directory HOME is
+    used.  If dir is “-”, the previous working directory is used (see
+    the OLDPWD parameter).
+
+    If the -L option (logical path) is used or if the physical option
+    isn't set (see the set command below), references to “..” in dir
+    are relative to the path used to get to the directory.  If the -P
+    option (physical path) is used or if the physical option is set,
+    “..” is relative to the filesystem directory tree.  The PWD and
+    OLDPWD parameters are updated to reflect the current and old work‐
+    ing directory, respectively.  If the -e option is set for physical
+    filesystem traversal and PWD could not be set, the exit code is 1;
+    greater than 1 if an error occurred, 0 otherwise.
+
+cd [-eLP] old new
+chdir [-eLP] old new
+    The string new is substituted for old in the current directory,
+    and the shell attempts to change to the new directory.

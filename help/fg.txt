@@ -1,0 +1,4 @@
+fg [job ...]
+    Resume the specified job(s) in the foreground.  If no jobs are
+    specified, %+ is assumed.  See Job control below for more informa‐
+    tion.

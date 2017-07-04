@@ -1,0 +1,4 @@
+sleep seconds
+    Suspends execution for a minimum of the seconds specified as posi‐
+    tive decimal value with an optional fractional part.  Signal
+    delivery may continue execution earlier.

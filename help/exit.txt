@@ -1,0 +1,4 @@
+exit [status]
+    The shell or subshell exits with the specified exit status.  If
+    status is not specified, the exit status is the current value of
+    the $? parameter.

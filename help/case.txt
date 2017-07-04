@@ -1,0 +1,24 @@
+case word in [[(] pattern [| pattern] ...) list terminator] ... esac
+   The case statement attempts to match word against a specified
+   pattern; the list associated with the first successfully matched
+   pattern is executed.  Patterns used in case statements are the same
+   as those used for file name patterns except that the restrictions
+   regarding ‘.’ and ‘/’ are dropped.  Note that any unquoted space
+   before and after a pattern is stripped; any space within a pattern
+   must be quoted.  Both the word and the patterns are subject to
+   parameter, command and arithmetic substitution, as well as tilde
+   substitution.
+
+   For historical reasons, open and close braces may be used instead
+   of in and esac e.g. case $foo { *) echo bar ;; }.
+
+   The list terminators are:
+
+   “;;”  Terminate after the list.
+
+   “;&”  Fall through into the next list.
+
+   “;|”  Evaluate the remaining pattern-list tuples.
+
+   The exit status of a case statement is that of the executed list;
+   if no list is executed, the exit status is zero.

@@ -1,0 +1,3 @@
+( list )
+   Execute list in a subshell.  There is no implicit way to pass envi‐
+   ronment changes from a subshell back to its parent.

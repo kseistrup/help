@@ -1,0 +1,36 @@
+print [-AcelNnprsu[n] | -R [-n]] [argument ...]
+    Print the specified argument(s) on the standard output, separated
+    by spaces, terminated with a newline.  The escapes mentioned in
+    Backslash expansion above, as well as “\c”, which is equivalent to
+    using the -n option, are interpreted.
+
+    The options are as follows:
+
+    -A      Each argument is arithmetically evaluated; the character
+            corresponding to the resulting value is printed.  Empty
+            arguments separate input words.
+
+    -c      The output is printed columnised, line by line, similar to
+            how the rs(1) utility, tab completion, the kill -l built-
+            in utility and the select statement do.
+
+    -e      Restore backslash expansion after a previous -r.
+
+    -l      Change the output word separator to newline.
+
+    -N      Change the output word and line separator to ASCII NUL.
+
+    -n      Do not print the trailing line separator.
+
+    -p      Print to the co-process (see Co-processes above).
+
+    -r      Inhibit backslash expansion.
+
+    -s      Print to the history file instead of standard output.
+
+    -u[n]   Print to the file descriptor n (defaults to 1 if omitted)
+            instead of standard output.
+
+    The -R option mostly emulates the BSD echo(1) command which does
+    not expand backslashes and interprets its first argument as option
+    only if it is exactly “-n” (to suppress the trailing newline).

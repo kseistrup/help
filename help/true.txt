@@ -1,0 +1,4 @@
+true
+    A command that exits with a zero value.
+
+typeset [+-aglpnrtUux] [-L[n] | -R[n] | -Z[n]] [-i[n]] [name [=value] ...]

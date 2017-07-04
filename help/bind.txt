@@ -1,0 +1,41 @@
+bind [-l]
+    The current bindings are listed.  If the -l flag is given, bind
+    instead lists the names of the functions to which keys may be
+    bound.  See Emacs editing mode for more information.
+
+bind [-m] string=[substitute] ...
+bind string=[editing-command] ...
+    The specified editing command is bound to the given string, which
+    should consist of a control character optionally preceded by one
+    of the two prefix characters and optionally succeeded by a tilde
+    character.  Future input of the string will cause the editing com‐
+    mand to be immediately invoked.  If the -m flag is given, the
+    specified input string will afterwards be immediately replaced by
+    the given substitute string which may contain editing commands but
+    not other macros.  If a tilde postfix is given, a tilde trailing
+    the one or two prefices and the control character is ignored, any
+    other trailing character will be processed afterwards.
+
+    Control characters may be written using caret notation i.e. ^X
+    represents Ctrl-X.  Note that although only two prefix characters
+    (usually ESC and ^X) are supported, some multi-character sequences
+    can be supported.
+
+    The following default bindings show how the arrow keys, the home,
+    end and delete key on a BSD wsvt25, xterm-xfree86 or GNU screen
+    terminal are bound (of course some escape sequences won't work out
+    quite this nicely):
+
+          bind '^X'=prefix-2
+          bind '^[['=prefix-2
+          bind '^XA'=up-history
+          bind '^XB'=down-history
+          bind '^XC'=forward-char
+          bind '^XD'=backward-char
+          bind '^X1~'=beginning-of-line
+          bind '^X7~'=beginning-of-line
+          bind '^XH'=beginning-of-line
+          bind '^X4~'=end-of-line
+          bind '^X8~'=end-of-line
+          bind '^XF'=end-of-line
+          bind '^X3~'=delete-char-forward

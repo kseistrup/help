@@ -1,0 +1,8 @@
+mknod [-m mode] name b|c major minor
+mknod [-m mode] name p
+    Create a device special file.  The file type may be b (block type
+    device), c (character type device) or p (named pipe, FIFO).  The
+    file created may be modified according to its mode (via the -m
+    option), major (major device number), and minor (minor device num‐
+    ber).  This is not normally part of mksh; however, distributors
+    may have added this as builtin as a speed hack.

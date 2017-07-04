@@ -1,0 +1,8 @@
+let [expression ...]
+    Each expression is evaluated (see Arithmetic expressions above).
+    If all expressions are successfully evaluated, the exit status is
+    0 (1) if the last expression evaluated to non-zero (zero).  If an
+    error occurs during the parsing or evaluation of an expression,
+    the exit status is greater than 1.  Since expressions may need to
+    be quoted, (( expr )) is syntactic sugar for:
+          { \\builtin let 'expr'; }

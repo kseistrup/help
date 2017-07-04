@@ -1,0 +1,31 @@
+[[ expression ]]
+   Similar to the test and [ ... ] commands (described later), with
+   the following exceptions:
+
+   ·   Field splitting and file name generation are not performed on
+       arguments.
+
+   ·   The -a (AND) and -o (OR) operators are replaced with “&&” and
+       “||”, respectively.
+
+   ·   Operators (e.g. “-f”, “=”, “!”) must be unquoted.
+
+   ·   Parameter, command and arithmetic substitutions are performed
+       as expressions are evaluated and lazy expression evaluation is
+       used for the “&&” and “||” operators.  This means that in the
+       following statement, $(<foo) is evaluated if and only if the
+       file foo exists and is readable:
+
+             $ [[ -r foo && $(<foo) = b*r ]]
+
+   ·   The second operand of the “!=” and “=” expressions are a subset
+       of patterns (e.g. the comparison [[ foobar = f*r ]] succeeds).
+       This even works indirectly:
+
+             $ bar=foobar; baz='f*r'
+             $ [[ $bar = $baz ]]; echo $?
+             $ [[ $bar = "$baz" ]]; echo $?
+
+       Perhaps surprisingly, the first comparison succeeds, whereas
+       the second doesn't.  This does not apply to all extglob
+       metacharacters, currently.

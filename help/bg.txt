@@ -1,0 +1,4 @@
+bg [job ...]
+    Resume the specified stopped job(s) in the background.  If no jobs
+    are specified, %+ is assumed.  See Job control below for more
+    information.

@@ -1,0 +1,5 @@
+rename [--] from to
+    Renames the file from to to.  Both must be complete pathnames and
+    on the same device.  An external utility is preferred over this
+    builtin, which is intended for emergency situations (where /bin/mv
+    becomes unusable) and directly calls rename(2).

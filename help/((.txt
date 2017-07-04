@@ -1,0 +1,4 @@
+(( expression ))
+   The arithmetic expression expression is evaluated; equivalent to
+   “let "expression"” (see Arithmetic expressions and the let command,
+   below) in a compound construct.

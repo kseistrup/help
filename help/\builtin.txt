@@ -1,0 +1,4 @@
+\builtin command [arg ...]
+    Same as builtin.  Additionally acts as declaration utility for‐
+    warder, i.e. this is a declaration utility (see Tilde expansion)
+    iff command is a declaration utility.

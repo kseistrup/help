@@ -1,0 +1,139 @@
+test expression
+[ expression ]
+    test evaluates the expression and returns zero status if true, 1
+    if false, or greater than 1 if there was an error.  It is normally
+    used as the condition command of if and while statements.  Sym‐
+    bolic links are followed for all file expressions except -h and
+    -L.
+
+    The following basic expressions are available:
+
+    -a file            file exists.
+
+    -b file            file is a block special device.
+
+    -c file            file is a character special device.
+
+    -d file            file is a directory.
+
+    -e file            file exists.
+
+    -f file            file is a regular file.
+
+    -G file            file's group is the shell's effective group ID.
+
+    -g file            file's mode has the setgid bit set.
+
+    -H file            file is a context dependent directory (only
+                       useful on HP-UX).
+
+    -h file            file is a symbolic link.
+
+    -k file            file's mode has the sticky(8) bit set.
+
+    -L file            file is a symbolic link.
+
+    -O file            file's owner is the shell's effective user ID.
+
+    -p file            file is a named pipe (FIFO).
+
+    -r file            file exists and is readable.
+
+    -S file            file is a unix(4)-domain socket.
+
+    -s file            file is not empty.
+
+    -t fd              File descriptor fd is a tty(4) device.
+
+    -u file            file's mode has the setuid bit set.
+
+    -w file            file exists and is writable.
+
+    -x file            file exists and is executable.
+
+    file1 -nt file2    file1 is newer than file2 or file1 exists and
+                       file2 does not.
+
+    file1 -ot file2    file1 is older than file2 or file2 exists and
+                       file1 does not.
+
+    file1 -ef file2    file1 is the same file as file2.
+
+    string             string has non-zero length.
+
+    -n string          string is not empty.
+
+    -z string          string is empty.
+
+    -v name            The shell parameter name is set.
+
+    -o option          Shell option is set (see the set command above
+                       for a list of options).  As a non-standard
+                       extension, if the option starts with a ‘!’, the
+                       test is negated; the test always fails if
+                       option doesn't exist (so [ -o foo -o -o !foo ]
+                       returns true if and only if option foo exists).
+                       The same can be achieved with [ -o ?foo ] like
+                       in AT&T UNIX ksh93.  option can also be the
+                       short flag led by either ‘-’ or ‘+’ (no logical
+                       negation), for example “-x” or “+x” instead of
+                       “xtrace”.
+
+    string = string    Strings are equal.
+
+    string == string   Strings are equal.
+
+    string > string    First string operand is greater than second
+                       string operand.
+
+    string < string    First string operand is less than second string
+                       operand.
+
+    string != string   Strings are not equal.
+
+    number -eq number  Numbers compare equal.
+
+    number -ne number  Numbers compare not equal.
+
+    number -ge number  Numbers compare greater than or equal.
+
+    number -gt number  Numbers compare greater than.
+
+    number -le number  Numbers compare less than or equal.
+
+    number -lt number  Numbers compare less than.
+
+    The above basic expressions, in which unary operators have prece‐
+    dence over binary operators, may be combined with the following
+    operators (listed in increasing order of precedence):
+
+          expr -o expr            Logical OR.
+          expr -a expr            Logical AND.
+          ! expr                  Logical NOT.
+          ( expr )                Grouping.
+
+    Note that a number actually may be an arithmetic expression, such
+    as a mathematical term or the name of an integer variable:
+
+          x=1; [ "x" -eq 1 ]      evaluates to true
+
+    Note that some special rules are applied (courtesy of POSIX) if
+    the number of arguments to test or inside the brackets [ ... ] is
+    less than five: if leading “!” arguments can be stripped such that
+    only one to three arguments remain, then the lowered comparison is
+    executed; (thanks to XSI) parentheses \( ... \) lower four- and
+    three-argument forms to two- and one-argument forms, respectively;
+    three-argument forms ultimately prefer binary operations, followed
+    by negation and parenthesis lowering; two- and four-argument forms
+    prefer negation followed by parenthesis; the one-argument form
+    always implies -n.
+
+    Note: A common mistake is to use “if [ $foo = bar ]” which fails
+    if parameter “foo” is empty or unset, if it has embedded spaces
+    (i.e. IFS octets) or if it is a unary operator like “!” or “-n”.
+    Use tests like “if [ x"$foo" = x"bar" ]” instead, or the double-
+    bracket operator “if [[ $foo = bar ]]” or, to avoid pattern match‐
+    ing (see [[ above): “if [[ $foo = "$bar" ]]”
+
+    The [[ ... ]] construct is not only more secure to use but also
+    often faster.

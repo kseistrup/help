@@ -1,0 +1,8 @@
+for name [in word ...]; do list; done
+   For each word in the specified word list, the parameter name is set
+   to the word and list is executed.  If in is not used to specify a
+   word list, the positional parameters ($1, $2, etc.) are used
+   instead.  For historical reasons, open and close braces may be used
+   instead of do and done e.g. for i; { echo $i; }.  The exit status
+   of a for statement is the last exit status of list; if list is
+   never executed, the exit status is zero.

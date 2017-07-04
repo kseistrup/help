@@ -1,0 +1,8 @@
+jobs [-lnp] [job ...]
+    Display information about the specified job(s); if no jobs are
+    specified, all jobs are displayed.  The -n option causes informa‐
+    tion to be displayed only for jobs that have changed state since
+    the last notification.  If the -l option is used, the process ID
+    of each process in a job is also listed.  The -p option causes
+    only the process group of each job to be printed.  See Job control
+    below for the format of job and the displayed job.

@@ -1,0 +1,2 @@
+builtin [--] command [arg ...]
+    Execute the built-in command command.

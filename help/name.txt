@@ -1,0 +1,3 @@
+name() command
+   Mostly the same as function (see Functions below).  Whitespace
+   (space or tab) after name will be ignored most of the time.

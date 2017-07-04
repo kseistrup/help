@@ -1,0 +1,20 @@
+select name [in word ...]; do list; done
+   The select statement provides an automatic method of presenting the
+   user with a menu and selecting from it.  An enumerated list of the
+   specified word(s) is printed on standard error, followed by a
+   prompt (PS3: normally “#? ”).  A number corresponding to one of the
+   enumerated words is then read from standard input, name is set to
+   the selected word (or unset if the selection is not valid), REPLY
+   is set to what was read (leading/trailing space is stripped), and
+   list is executed.  If a blank line (i.e. zero or more IFS octets)
+   is entered, the menu is reprinted without executing list.
+
+   When list completes, the enumerated list is printed if REPLY is
+   empty, the prompt is printed, and so on.  This process continues
+   until an end-of-file is read, an interrupt is received, or a break
+   statement is executed inside the loop.  If “in word ...” is omit‐
+   ted, the positional parameters are used (i.e. $1, $2, etc.).  For
+   historical reasons, open and close braces may be used instead of do
+   and done e.g. select i; { echo $i; }.  The exit status of a select
+   statement is zero if a break statement is used to exit the loop,
+   non-zero otherwise.

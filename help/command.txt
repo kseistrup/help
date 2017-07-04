@@ -1,0 +1,22 @@
+command [-pVv] cmd [arg ...]
+    If neither the -v nor -V option is given, cmd is executed exactly
+    as if command had not been specified, with two exceptions:
+    firstly, cmd cannot be a shell function; and secondly, special
+    built-in commands lose their specialness (i.e. redirection and
+    utility errors do not cause the shell to exit, and command assign‐
+    ments are not permanent).  The declaration utility property is not
+    reset.
+
+    If the -p option is given, a default search path is used instead
+    of the current value of PATH, the actual value of which is system
+    dependent.
+
+    If the -v option is given, instead of executing cmd, information
+    about what would be executed is given (and the same is done for
+    arg ...).  For builtins, functions and keywords, their names are
+    simply printed; for aliases, a command that defines them is
+    printed; for utilities found by searching the PATH parameter, the
+    full path of the command is printed.  If no command is found (i.e.
+    the path search fails), nothing is printed and command exits with
+    a non-zero status.  The -V option is like the -v option, except it
+    is more verbose.

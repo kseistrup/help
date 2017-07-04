@@ -1,0 +1,3 @@
+global [+-aglpnrtUux] [-L[n] | -R[n] | -Z[n]] [-i[n]] [name [=value] ...]
+    See typeset -g.  Deprecated, will be removed from a future version
+    of mksh.
